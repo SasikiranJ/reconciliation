@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { IdentityService } from '../services/identityService';
+import logger from '../utils/logger';
 
 const identityService = new IdentityService();
 
@@ -20,7 +21,7 @@ export async function identify(req: Request, res: Response): Promise<void> {
 
     res.status(200).json(result);
   } catch (error) {
-    console.error('Error in identify endpoint:', error);
+    logger.error({ err: error, body: req.body }, 'Error in identify endpoint');
     res.status(500).json({
       error: 'Internal server error',
       message: error instanceof Error ? error.message : 'Unknown error',

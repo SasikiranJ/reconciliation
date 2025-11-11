@@ -1,16 +1,17 @@
 import sequelize from './config';
 // Import Contact model to ensure it's registered with Sequelize
 import '../models/Contact';
+import logger from '../utils/logger';
 
 export async function initDatabase() {
   try {
     await sequelize.authenticate();
-    console.log('Database connection established successfully.');
+    logger.info('Database connection established successfully');
 
     await sequelize.sync({ alter: true });
-    console.log('Database tables synchronized.');
+    logger.info('Database tables synchronized');
   } catch (error) {
-    console.error('Unable to connect to the database:', error);
+    logger.error({ err: error }, 'Unable to connect to the database');
     throw error;
   }
 }
