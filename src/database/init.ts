@@ -1,5 +1,6 @@
 import sequelize from './config';
-import Contact from '../models/Contact';
+// Import Contact model to ensure it's registered with Sequelize
+import '../models/Contact';
 
 export async function initDatabase() {
   try {

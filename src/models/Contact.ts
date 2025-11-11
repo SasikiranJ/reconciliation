@@ -13,7 +13,10 @@ interface ContactAttributes {
 }
 
 interface ContactCreationAttributes
-  extends Optional<ContactAttributes, 'id' | 'linkedId' | 'deletedAt'> {}
+  extends Optional<
+    ContactAttributes,
+    'id' | 'linkedId' | 'deletedAt' | 'createdAt' | 'updatedAt'
+  > {}
 
 class Contact
   extends Model<ContactAttributes, ContactCreationAttributes>

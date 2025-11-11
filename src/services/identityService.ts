@@ -7,7 +7,7 @@ export interface IdentifyRequest {
 }
 
 export interface ConsolidatedContact {
-  primaryContatctId: number; // Note: typo in requirements says "Contatct"
+  primaryContactId: number;
   emails: string[];
   phoneNumbers: string[];
   secondaryContactIds: number[];
@@ -266,7 +266,7 @@ export class IdentityService {
 
     return {
       contact: {
-        primaryContatctId: primary.id,
+        primaryContactId: primary.id,
         emails,
         phoneNumbers,
         secondaryContactIds,
